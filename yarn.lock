@@ -640,6 +640,27 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@types/prop-types@*":
+  version "15.5.6"
+  resolved "https://registry.navercorp.com:443/api/npm/npm-naver/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
+  integrity sha1-nAPT/tcKjVF8GRt3NNooebUMomw=
+
+"@types/react-native@^0.57.13":
+  version "0.57.13"
+  resolved "https://registry.navercorp.com:443/api/npm/npm-naver/@types/react-native/-/react-native-0.57.13.tgz#02dc7b8f5b291b290e047fb0da3ceaa27d7c71b9"
+  integrity sha1-Atx7j1spGykOBH+w2jzqon18cbk=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
+"@types/react@*":
+  version "16.7.7"
+  resolved "https://registry.navercorp.com:443/api/npm/npm-naver/@types/react/-/react-16.7.7.tgz#1e5e23e7dd922968ed4b484cdec00a5402c9f31b"
+  integrity sha1-Hl4j592SKWjtS0hM3sAKVALJ8xs=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.navercorp.com:443/api/npm/npm-naver/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -1587,6 +1608,11 @@ cssstyle@^1.0.0:
   integrity sha1-GLA4qcRNZfeo5CimU7n2/kL69fs=
   dependencies:
     cssom "0.3.x"
+
+csstype@^2.2.0:
+  version "2.5.7"
+  resolved "https://registry.navercorp.com:443/api/npm/npm-naver/csstype/-/csstype-2.5.7.tgz#bf9235d5872141eccfb2d16d82993c6b149179ff"
+  integrity sha1-v5I11YchQezPstFtgpk8axSRef8=
 
 dashdash@^1.12.0:
   version "1.14.1"

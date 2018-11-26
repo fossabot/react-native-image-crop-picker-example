@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
-import { Button, CameraRoll, Dimensions, FlatList, Image, TouchableOpacity, View } from 'react-native'
+import { Button, FlatList, Image, TouchableOpacity, View } from 'react-native'
 import ImagePicker, { Image as Photo } from 'react-native-image-crop-picker'
+import { PhotoItemPerRow, width, height } from './const'
+
+type Props = {}
 
 interface State {
   photo?: Photo
   photos: Photo[]
 }
-type Props = {}
-
-enum PhotoItemPerRow {
-  CameraRoll = 3,
-}
-const itemDimension =
-  Dimensions.get('window').width / PhotoItemPerRow.CameraRoll
-const width = itemDimension
-const height = itemDimension
 
 export class CameraManager extends Component<Props, State> {
   state: State = {
@@ -49,11 +43,9 @@ export class CameraManager extends Component<Props, State> {
       const photos = await ImagePicker.openPicker({
         width,
         height,
-        // cropping: true,
         multiple: true,
         maxFiles: 1000,
-        // smartAlbums: ['UserLibrary']
-      })
+      }) as Photo[]
 
       this.setState({
         photos,
