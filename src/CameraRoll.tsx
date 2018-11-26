@@ -22,9 +22,11 @@ export class CameraManager extends Component<Props, State> {
       height,
     })
 
-    this.setState({
-      photo,
-    })
+    if (photo) {
+      this.setState({
+        photo,
+      })
+    }
   }
 
   renderItem = ({ item }) => {
