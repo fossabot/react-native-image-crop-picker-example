@@ -7,7 +7,7 @@ Here are the other project [https://github.com/vreality64/react-native-camera-ro
 
 ### Demo
 
-![cpu profiling with xcode](https://user-images.githubusercontent.com/886706/48934895-180daa80-ef49-11e8-9f3a-459c2a68042b.gif)
+![cpu profiling with xcode](https://user-images.githubusercontent.com/886706/49022267-c9c20b00-f1d7-11e8-8ee2-8366e6e27216.gif)
 
 ### environment
 
