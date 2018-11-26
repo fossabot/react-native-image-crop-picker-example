@@ -42,19 +42,19 @@ export class CameraManager extends Component<Props, State> {
 
   loadCameraManager = async () => {
     try {
-      const photos = await ImagePicker.openPicker({
+      const photos = (await ImagePicker.openPicker({
         width,
         height,
         multiple: true,
         maxFiles: 1000,
-      }) as Photo[]
+      })) as Photo[]
 
-      this.setState({
-        photos,
-      })
-    } catch (e) {
-      console.error(e)
-    }
+      if (!!photos) {
+        this.setState({
+          photos,
+        })
+      }
+    } catch (e) {}
   }
 
   render() {
@@ -64,11 +64,7 @@ export class CameraManager extends Component<Props, State> {
           title="Load Camera Roll's Image"
           onPress={this.loadCameraManager}
         />
-        { this.state.photo && (
-          <View style={{ width: '100%', height: 100 }}>
-            <Image source={{ uri: this.state.photo.path, width, height }} />
-          </View>
-        )}
+        {this.state.photo && this.renderItem({ item: this.state.photo })}
         <FlatList
           data={this.state.photos}
           keyExtractor={(_, index) => `${index}`}
