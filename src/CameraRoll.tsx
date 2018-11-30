@@ -3,7 +3,9 @@ import { Button, FlatList, Image, TouchableOpacity, View } from 'react-native'
 import ImagePicker, { Image as Photo } from 'react-native-image-crop-picker'
 import { PhotoItemPerRow, width, height } from './const'
 
-type Props = {}
+type Props = {
+  disabled: boolean
+}
 
 interface State {
   photo?: Photo
@@ -42,37 +44,40 @@ export class CameraManager extends Component<Props, State> {
 
   loadCameraManager = async () => {
     try {
-      const photos = (await ImagePicker.openPicker({
+      const photos = await ImagePicker.openPicker({
         width,
         height,
-        multiple: true,
         maxFiles: 1000,
-      })) as Photo[]
+      }) as Photo
 
       if (!!photos) {
         this.setState({
-          photos,
+          photo: photos,
         })
       }
     } catch (e) {}
   }
 
   render() {
+    if (this.props.disabled) {
+      return null
+    }
+
     return (
-      <>
+      <View style={{ flex: 10 }}>
         <Button
-          title="Load Camera Roll's Image"
+          title="It's Camera Icon :)"
           onPress={this.loadCameraManager}
         />
         {this.state.photo && this.renderItem({ item: this.state.photo })}
-        <FlatList
+        {/* <FlatList
           data={this.state.photos}
           keyExtractor={(_, index) => `${index}`}
           numColumns={PhotoItemPerRow.CameraRoll}
           renderItem={this.renderItem}
           removeClippedSubviews={true}
-        />
-      </>
+        /> */}
+      </View>
     )
   }
 }
