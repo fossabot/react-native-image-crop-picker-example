@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, FlatList, Image, TouchableOpacity, View, CameraRoll, GetPhotosReturnType, Text, ImageBackground } from 'react-native'
 import ImagePicker, { Image as Photo } from 'react-native-image-crop-picker'
-import { PhotoItemPerRow, width, height, PreviewItemCount } from './const'
+import { PhotoItemPerRow, width, height, PreviewItemCount, noImage } from './const'
 
 type Props = {
   disabled: boolean
@@ -44,7 +44,7 @@ export class ReviewManager extends Component<Props, State> {
     const showImagePreview = index + 1 < PreviewItemCount.Review
 
     return showImagePreview ? (
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={() => {}} activeOpacity={1}>
         <Image
           style={{ width, height }}
           source={{ width, height, uri: item.image.uri }}
@@ -52,7 +52,7 @@ export class ReviewManager extends Component<Props, State> {
       </TouchableOpacity>
     ) : (
       <TouchableOpacity onPress={this.openImagePicker}>
-        <ImageBackground source={{ uri: '' }} style={{ width, height, backgroundColor: 'lightgrey' }}>
+        <ImageBackground source={{ uri: noImage }} style={{ width, height, backgroundColor: 'lightgrey' }}>
           <Text>Open From Album</Text>
         </ImageBackground>
       </TouchableOpacity>
